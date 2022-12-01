@@ -4,12 +4,12 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
+            <div class="pull-right">
                 <h2>Permission</h2>
             </div>
             <div class="pull-right">
                 @can('permission-create')
-                <a class="btn btn-success" href="{{ route('permissions.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('permissions.create') }}"> Create New Permission</a>
                 @endcan
             </div>
         </div>

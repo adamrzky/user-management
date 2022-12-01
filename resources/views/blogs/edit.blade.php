@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Permission</h2>
+                <h2>Edit Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('permissions.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('blogs.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -26,25 +26,26 @@
     @endif
 
 
-    <form action="{{ route('permissions.store') }}" method="POST">
+    <form action="{{ route('blogs.update',$blog->id) }}" method="POST">
     	@csrf
+        @method('PUT')
 
 
          <div class="row">
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            <strong>Name:</strong>
-		            <input type="text" name="name" class="form-control" placeholder="Name">
+		            <strong>Title:</strong>
+		            <input type="text" name="title" value="{{ $blog->title }}" class="form-control" placeholder="Name">
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
-		            <strong>guard_name:</strong>
-		            <input type="text" name="guard_name" class="form-control" value="web" placeholder="web" readonly>
+		            <strong>Content:</strong>
+		            <textarea class="form-control" style="height:150px" name="content" placeholder="Content">{{ $blog->content }}</textarea>
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-		            <button type="submit" class="btn btn-primary">Submit</button>
+		      <button type="submit" class="btn btn-primary">Submit</button>
 		    </div>
 		</div>
 

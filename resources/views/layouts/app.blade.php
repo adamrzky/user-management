@@ -23,8 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Roles and Permissions - 
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    Dashboard
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,20 +55,33 @@
                         <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                         <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
                         <li><a class="nav-link" href="{{ route('permissions.index') }}">Manage Permission</a></li>
-                            <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                      
+                    
+                        
+                            <div class=" dropdown show  ">
+                                <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Manage
                                 </a>
+                              
+                                <div class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
+                                  <a class="nav-link" href="{{ route('products.index') }}">Manage Product</a>
+                                  <a class="nav-link" href="{{ route('blogs.index') }}">Manage Blog</a>
+                                  
+                                </div>
+                              </div>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                              
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              
+
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                        </li>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
